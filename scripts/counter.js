@@ -1,17 +1,21 @@
-export const setupCounter = (element) => {
-  if (!element) {
-    element = createCounter();
-  }
+import { createElementWithClassNames } from "./utils";
+
+const setupCounter = () => {
+  const element = createCounter();
+
+  let count = 0;
 
   const increaseCount = () => {
-    const currentCount = Number(element.textContent);
-    element.textContent = currentCount + 1;
+    count = count + 1;
+    element.textContent = count;
   };
 
   const decreaseCount = () => {
-    const currentCount = Number(element.textContent);
-    element.textContent = currentCount - 1;
+    count = count - 1;
+    element.textContent = count;
   };
+
+  const getCount = () => count;
 
   const destroy = () => {
     element.remove();
@@ -19,17 +23,19 @@ export const setupCounter = (element) => {
 
   return {
     element,
+    getCount,
     increaseCount,
     decreaseCount,
     destroy,
   };
 };
 
-const createCounter = (count) => {
-  const counterElement = document.createElement("span");
+const createCounter = () => {
+  const counterElement = createElementWithClassNames("span", "letter__count");
 
-  counterElement.classList.add("letter-contacts-count");
-  counterElement.textContent = count;
+  counterElement.textContent = 0;
 
   return counterElement;
 };
+
+export default setupCounter;

@@ -1,14 +1,14 @@
+import { createElementWithClassNames } from "./utils";
+
 const contactTemplate = document.querySelector("#contact-item-template");
 
-export const setupContactsList = (element) => {
-  if (!element) {
-    element = createContactsList();
-  }
+export const setupContactsList = () => {
+  const element = createContactsList();
 
-  const addContact = (name, vacancy, phone, onDelete) => {
-    const contact = createContact(name, vacancy, phone, onDelete);
+  const addContact = (contact, onDelete) => {
+    const contactElement = createContact(contact, onDelete);
 
-    element.append(contact);
+    element.append(contactElement);
   };
 
   const deleteContact = (event) => {
@@ -34,20 +34,21 @@ export const setupContactsList = (element) => {
 };
 
 const createContactsList = () => {
-  const element = document.createElement("ul");
-
-  element.classList.add("contacts-list");
+  const element = createElementWithClassNames("ul", "letter__contacts-list");
 
   return element;
 };
 
-function createContact(name, vacancy, phone, onDelete) {
+function createContact({ name, vacancy, phone }, onDelete) {
   const contactItem = contactTemplate.content.cloneNode(true);
 
-  const nameElement = contactItem.querySelector(".js-contact-info-name");
-  const vacancyElement = contactItem.querySelector(".js-contact-info-vacancy");
-  const phoneElement = contactItem.querySelector(".js-contact-info-phone");
-  const deleteButton = contactItem.querySelector(".contact-delete-button");
+  const nameElement = contactItem.querySelector(".contact-item__name");
+  const vacancyElement = contactItem.querySelector(".contact-item__vacancy");
+  const phoneElement = contactItem.querySelector(".contact-item__phone");
+
+  const deleteButton = contactItem.querySelector(
+    ".contact-item__delete-button",
+  );
 
   nameElement.textContent += name;
   vacancyElement.textContent += vacancy;
