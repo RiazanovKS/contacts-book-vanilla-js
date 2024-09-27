@@ -7,123 +7,54 @@
     <script src="scripts/index.js" type="module" defer></script>
   </head>
   <body>
-    <h1 class="title">Contacts List on JS</h1>
-    <form class="contact-form">
-      <input class="contact-input" name="name" type="text" placeholder="name" />
-      <input
-        class="contact-input"
-        name="vacancy"
-        type="text"
-        placeholder="vacancy"
-      />
-      <input
-        class="contact-input"
-        name="phone"
-        type="tel"
-        placeholder="phone number"
-      />
+    <div class="container">
+      <h1 class="title">Contacts List on JS</h1>
+      <form class="contact-form">
+        <input
+          class="contact-input"
+          name="name"
+          type="text"
+          placeholder="name"
+        />
+        <input
+          class="contact-input"
+          name="vacancy"
+          type="text"
+          placeholder="vacancy"
+        />
+        <input
+          class="contact-input"
+          name="phone"
+          type="tel"
+          placeholder="phone number"
+        />
 
-      <div class="contact-form-actions">
-        <button class="button" type="submit">Add</button>
-        <button class="button">Clear list</button>
-        <button class="button">Search</button>
-      </div>
-    </form>
+        <div class="contact-form-actions">
+          <button class="button" type="submit">Add</button>
+          <button class="button" type="button">Clear list</button>
+          <button class="contact-form__search button" type="button">
+            Search
+          </button>
+        </div>
+      </form>
 
-    <div class="contacts-alphabet">
-      <ul class="contacts-alphabet-column">
-        <li class="contacts-alphabet-element" data-letter="A">
-          <div class="contacts-alphabet-letter">A</div>
-        </li>
-        <li class="contacts-alphabet-element" data-letter="B">
-          <div class="contacts-alphabet-letter">B</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">C</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">D</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">E</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">F</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">G</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">H</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">I</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">J</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">K</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">L</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">M</div>
-        </li>
-      </ul>
-      <ul class="contacts-alphabet-column">
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">N</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">O</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">P</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">Q</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">R</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">S</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">T</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">U</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">V</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">W</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">X</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">Y</div>
-        </li>
-        <li class="contacts-alphabet-element">
-          <div class="contacts-alphabet-letter">Z</div>
-        </li>
-      </ul>
+      <ul class="alphabet-list"></ul>
     </div>
 
     <template id="contact-item-template">
-      <div class="contact-item">
-        <div class="contact-info">
-          <span class="js-contact-info-name">Name: </span>
-          <span class="js-contact-info-vacancy">Vacancy: </span>
-          <span class="js-contact-info-phone">Phone: </span>
+      <li class="letter__contacts-item contact-item">
+        <div class="contact-item__info">
+          <span class="contact-item__name">Name: </span>
+          <span class="contact-item__vacancy">Vacancy: </span>
+          <span class="contact-item__phone">Phone: </span>
         </div>
-        <button class="contact-delete-button">x</button>
-      </div>
+        <button class="contact-item__delete-button">x</button>
+      </li>
     </template>
+
+    <div class="modal" hidden>
+      <div class="modal__overlay"></div>
+      <div class="modal__content"></div>
+    </div>
   </body>
 </html>
