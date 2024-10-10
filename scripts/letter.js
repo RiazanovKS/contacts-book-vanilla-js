@@ -39,6 +39,13 @@ const create = (character, counter, contactsList) => {
   const heading = createElementWithClassNames("div", "letter__heading");
   const name = createElementWithClassNames("span", "letter__name");
 
+  contactsList.element.hidden = true;
+
+  heading.addEventListener("click", () => {
+    contactsList.element.hidden = !contactsList.element.hidden;
+    element.classList.toggle("letter--opened");
+  });
+
   element.dataset.letter = character;
 
   name.textContent = character;

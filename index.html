@@ -31,7 +31,9 @@
 
         <div class="contact-form-actions">
           <button class="button" type="submit">Add</button>
-          <button class="button" type="button">Clear list</button>
+          <button class="button js-clear-contacts-button" type="button">
+            Clear list
+          </button>
           <button class="contact-form__search button" type="button">
             Search
           </button>
@@ -48,13 +50,37 @@
           <span class="contact-item__vacancy">Vacancy: </span>
           <span class="contact-item__phone">Phone: </span>
         </div>
-        <button class="contact-item__delete-button">x</button>
+        <div class="contact-item__actions">
+          <button
+            class="contact-item__action-button contact-item__action-button--edit js-edit-contact-button"
+          >
+            <svg class="contact-item__action-icon">
+              <use href="icons/sprite.svg#edit"></use>
+            </svg>
+          </button>
+          <button
+            class="contact-item__action-button contact-item__action-button--delete js-delete-contact-button"
+          >
+            <svg class="contact-item__action-icon">
+              <use href="icons/sprite.svg#cross"></use>
+            </svg>
+          </button>
+        </div>
       </li>
     </template>
 
-    <div class="modal" hidden>
-      <div class="modal__overlay"></div>
-      <div class="modal__content"></div>
-    </div>
+    <template id="modal">
+      <div class="modal" hidden>
+        <div class="modal__inner">
+          <div class="modal__content">
+            <button type="button" class="modal__close-button">
+              <svg class="modal__close-icon">
+                <use href="icons/sprite.svg#cross"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
   </body>
 </html>

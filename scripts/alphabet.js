@@ -7,7 +7,9 @@ const setupAlphabet = (element) => {
   }
   const letters = {};
 
-  const clear = () => {};
+  const clear = () => {
+    element.innerHTML = "";
+  };
 
   const addContact = (contact) => {
     const nameFirstLetterCapitalized = contact.name.slice(0, 1).toUpperCase();
@@ -32,6 +34,8 @@ const setupAlphabet = (element) => {
       letter.destroy();
     }
   };
+
+  const searchContacts = (query) => {};
 
   const destroy = () => {
     element.remove();
