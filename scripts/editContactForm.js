@@ -1,3 +1,5 @@
+import { createElementWithClassNames } from "./utils";
+
 const setupEditContactForm = () => {
   const element = create();
 
@@ -46,7 +48,7 @@ const create = () => {
     submitButton,
   );
 
-  return element;
+  return formElement;
 };
 
 export default setupEditContactForm;

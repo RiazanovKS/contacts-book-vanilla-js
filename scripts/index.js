@@ -12,6 +12,8 @@ const alphabet = setupAlphabet(document.querySelector(".alphabet-list"));
 const searchButton = document.querySelector(".contact-form__search");
 const clearButton = document.querySelector(".js-clear-contacts-button");
 
+console.log(contactForm);
+
 const searchForm = setupSearchForm();
 const editForm = setupEditContactForm();
 searchForm.setChangeHandler((event) => {
